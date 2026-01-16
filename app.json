@@ -7,7 +7,7 @@
     "icon": "./assets/images/coffee-icon.png",
     "scheme": "tasker",
     "userInterfaceStyle": "automatic",
-    "splash": { // TODO: fix this splash screen not showing
+    "splash": {
       "image": "./assets/images/coffee-splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#000000"
@@ -35,7 +35,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png", // check this
+          "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
