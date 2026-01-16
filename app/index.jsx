@@ -11,7 +11,7 @@ const app = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <Text style={styles.title}>Tasker 0.1</Text>
+        <Text style={styles.title}>Tasker 0.2</Text>
 
         <Link href="/menu" style={{ marginHorizontal: 'auto' }} asChild>
           <Pressable style={styles.button}>
