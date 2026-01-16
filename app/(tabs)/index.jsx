@@ -10,7 +10,7 @@ const app = () => {
         resizeMode="cover"
         style={styles.image}
       >
-      <Text style={styles.text}>Coffee Shop</Text>
+      <Text style={styles.text}>Tasker 0.1</Text>
       </ImageBackground>
     </View>
   )
