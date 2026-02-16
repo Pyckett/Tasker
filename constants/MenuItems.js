@@ -1,52 +1,37 @@
 export const MENU_ITEMS = [
     {
         "id": 1,
-        "title": "Espresso",
-        "description": "Strong, concentrated coffee.",
+        "title": "Breakfast",
+        "description": "A good breakfast leads to a good day.",
     },
     {
         "id": 2,
-        "title": "Americano",
-        "description": "Espresso diluted with hot water.",
+        "title": "Shower",
+        "description": "Look good feel good.",
     },
     {
         "id": 3,
-        "title": "Latte",
-        "description": "Espresso with steamed milk and foam.",
+        "title": "Clean Room",
+        "description": "Prioritize organization.",
     },
     {
         "id": 4,
-        "title": "Cappuccino",
-        "description": "Equal parts espresso, milk, and foam.",
+        "title": "School Work",
+        "description": "Get productive towards your goals.",
     },
     {
         "id": 5,
-        "title": "Macchiato",
-        "description": "Espresso with a dollop of foam.",
+        "title": "Exercise",
+        "description": "Health is wealth.",
     },
     {
         "id": 6,
-        "title": "Mocha",
-        "description": "Latte with chocolate flavor.",
+        "title": "Lunch",
+        "description": "Get some energy.",
     },
     {
         "id": 7,
-        "title": "Flat White",
-        "description": "Espresso with velvety steamed milk.",
-    },
-    {
-        "id": 8,
-        "title": "Cortado",
-        "description": "Equal parts espresso and milk.",
-    },
-    {
-        "id": 9,
-        "title": "Cold Brew",
-        "description": "Cold water brewed coffee.",
-    },
-    {
-        "id": 10,
-        "title": "Affogato",
-        "description": "Espresso over ice cream.",
+        "title": "Dinner",
+        "description": "Replenish.",
     }
 ]

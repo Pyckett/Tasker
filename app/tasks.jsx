@@ -1,4 +1,5 @@
-import { Appearance, FlatList, Image, Platform, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Appearance, FlatList, Image, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { Colors } from '@/constants/Colors';
 import MENU_IMAGES from '@/constants/MenuImages';
@@ -11,12 +12,22 @@ export default function MenuScreen() {
 
     const styles = createStyles(theme, colorScheme)
 
+    const [completedItems, setCompletedItems] = useState([]);
+
+    const toggleCompleted = (id) => {
+        setCompletedItems((prev) =>
+            prev.includes(id)
+                ? prev.filter((itemId) => itemId !== id)
+                : [...prev, id]
+        );
+    };
+
     const Container = Platform.OS === 'web' ? ScrollView : SafeAreaView;
 
     const separatorComp = <View style={styles.separator} />
 
     //const headerComp = <Text>Top of List</Text>
-    const footerComp = <Text style={{ color: theme.text }}>End of Menu</Text>
+    const footerComp = <Text style={{ color: theme.text }}>End of List</Text>
 
     return (
         <Container>
@@ -31,18 +42,42 @@ export default function MenuScreen() {
                 ListFooterComponent={footerComp}
                 ListFooterComponentStyle={styles.footerComp}
                 ListEmptyComponent={<Text>No items</Text>}
-                renderItem={({ item }) => (
-                    <View style={styles.row}>
-                        <View style={styles.menuTextRow}>
-                            <Text style={[styles.menuItemTitle, styles.menuItemText]}>{item.title}</Text>
-                            <Text style={styles.menuItemText}>{item.description}</Text>
+                renderItem={({ item }) => {
+                    const isCompleted = completedItems.includes(item.id);
+
+                    return (
+                        <View
+                            style={[
+                                styles.row,
+                                { backgroundColor: isCompleted ? "green" : "#2f2f2f" } // grey when not completed
+                            ]}
+                        >
+                            <View style={styles.menuTextRow}>
+                                <Text style={[styles.menuItemTitle, styles.menuItemText]}>
+                                    {item.title}
+                                </Text>
+                                <Text style={styles.menuItemText}>
+                                    {item.description}
+                                </Text>
+
+                                <TouchableOpacity
+                                    style={styles.completeButton}
+                                    onPress={() => toggleCompleted(item.id)}
+                                >
+                                    <Text style={styles.buttonText}>
+                                        {isCompleted ? "Undo" : "Completed"}
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+                            <Image
+                                source={MENU_IMAGES[item.id - 1]}
+                                style={styles.menuImage}
+                            />
                         </View>
-                        <Image
-                            source={MENU_IMAGES[item.id - 1]}
-                            style={styles.menuImage}
-                        />
-                    </View>
-                )}
+                    );
+                }}
+
             />
 
         </Container>
@@ -67,6 +102,18 @@ function createStyles(theme, colorScheme) {
         },
         footerComp: {
             marginHorizontal: 'auto',
+        },
+        completeButton: {
+            marginTop: 8,
+            backgroundColor: "#444",
+            paddingVertical: 6,
+            paddingHorizontal: 12,
+            borderRadius: 8,
+            alignSelf: "flex-start",
+        },
+        buttonText: {
+            color: "#fff",
+            fontWeight: "600",
         },
         row: {
             flexDirection: 'row',

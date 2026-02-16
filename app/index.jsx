@@ -1,7 +1,7 @@
 import { Link } from 'expo-router'
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native'
 
-import icedCoffeeImg from "@/assets/images/iced-coffee.png"
+import icedCoffeeImg from "@/assets/images/homescreen_1.png"
 
 const app = () => {
   return (
@@ -11,17 +11,17 @@ const app = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <Text style={styles.title}>Tasker 0.2</Text>
+        <Text style={styles.title}>Tasker 0.3</Text>
 
-        <Link href="/menu" style={{ marginHorizontal: 'auto' }} asChild>
+        <Link href="/tasks" style={{ marginHorizontal: 'auto' }} asChild>
           <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>Our Menu</Text>
+            <Text style={styles.buttonText}>Tasks</Text>
           </Pressable>
         </Link>
 
         <Link href="/contact" style={{ marginHorizontal: 'auto' }} asChild>
           <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>Contact Us</Text>
+            <Text style={styles.buttonText}>Info</Text>
           </Pressable>
         </Link>
 
